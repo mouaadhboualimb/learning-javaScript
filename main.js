@@ -1,18 +1,115 @@
+//////lesson 97:
+
+
+
+//////lesson 96:(css styling)
+// let el = document.getElementById("my-div");
+// el.style.color = "red";
+// el.style.fontWeight = "600";
+// el.style.cssText = "font-weight: 900; color: green; opacity: 1;";
+// el.style.removeProperty("color");
+// el.style.setProperty("font-size", "30px", "important");
+// document.styleSheets[0].rules[0].style.removeProperty("line-height");//line-height will be removed even if it was important in the css file
+// document.styleSheets[0].rules[0].style.setProperty("background-color", "gold");
+
+//////lesson 95:(class list)
+// let el = document.getElementById("my-div");
+// console.log(el.classList);
+// console.log(typeof el.classList);
+// console.log(el.classList.contains("mouaadh"));
+// console.log(el.classList.contains("show"));
+// console.log(el.classList.item(2));//show
+// console.log(el.classList[2])//show / this is equivalent to the above one
+// el.onclick = function () {
+//     el.classList.add("add-one", "add-two");
+//     el.classList.remove("one", "add-one");
+//     el.classList.toggle("show");//if show exists it removes it and if it doesn't exist it add it
+// }
+// why this code dont work :
+// el.onblur = function () {
+//     el.classList.remove("add-one", "one");
+// }
+
+//////lesson 94: 
+// let one = document.querySelector("[name='username']");
+// let two = document.querySelector("[name='age']");
+// window.onload = function () {
+//     two.focus();
+// }
+// one.onblur = function () {
+//     document.links[0].click();//when the event onblur is done click() is applied, the same thing for focus()
+// }
+
+//////lesson 93:(validating a form)
+// document.links[0].onclick = function (event){
+//     console.log(event);//this shows you the event ou are using 
+//     event.preventDefault();//this fun is used to stop the event to not be applied, when i used this instead of event i got an error why 
+// }
+//// let's see how to validate a form : 
+// let user = document.querySelector("[name='username']");
+// let age = document.querySelector("[name='age']");
+//// method one of validating a form :
+// document.forms[0].onsubmit = function (e) {
+//     let userValid = false,
+//         ageValid = false;
+//     if(user.value !== "" && user.value.length <= 10)
+//         userValid = true;
+//     if (age.value !== "")
+//         ageValid = true;
+//     if (ageValid === false || userValid === false) {
+//         e.preventDefault();
+//     }
+// }
+//// method two of validating a form : 
+// document.forms[0].onsubmit = function (e) {
+//     if(user.value === "" || user.value.length > 10 || age.value === "")
+//         e.preventDefault();
+// }
+
+//////lesson 92:(events)
+// let myBtn = document.body.firstElementChild;
+// myBtn.onclick = function () {//there is also oncontextmenu, onmouseenter, onmouseleave
+//     console.log('clicked from main.js file');
+// };
+// window.onscroll = function () {
+//     console.log("Scroll");
+// };
+// window.onresize = function () {
+//     console.log("resized");
+// };
+// let inp = document.getElementsByTagName('input')[0];
+//     inp.onfocus = function () {
+//         console.log("focused");
+//     }
+// i dont knw how to use onblur and onload?????????????
+
+//////lesson 91:
+// let myEl = document.querySelector("div");
+// console.log(myEl);
+// console.log(myEl.children);// this is only for elements
+// console.log(myEl.childNodes);//this is for texts and comments and elements
+// console.log(myEl.childNodes[3]);
+// console.log(myEl.firstChild);//for texts and elements and comments
+// console.log(myEl.lastChild);
+// console.log(myEl.firstElementChild);//but this is only for elements 
+// console.log(myEl.lastElementChild);
+
 //////lesson 90:
-let myProduct;
-let myH3 ;
-let myP ;
-for(let i = 0; i < 100; i++) {
-    myProduct = document.createElement("div");
-    myH3 = document.createElement("h3");
-    myP = document.createElement("p");
-    myProduct.className = `product-${i + 1}`;
-    myH3.textContent = `product ${i + 1}`;
-    myP.textContent = `product ${i + 1} is the best`;
-    myProduct.appendChild(myH3);
-    myProduct.appendChild(myP);
-    document.body.appendChild(myProduct);
-}
+// for(let i = 0; i < 100; i++) {
+//     // creating elements
+//     const myProduct = document.createElement("div");
+//     const myH3 = document.createElement("h3");
+//     const myP = document.createElement("p");
+//     // creating texts 
+//     const productNumber = i + 1;
+//     myProduct.className = `product-${productNumber}`;
+//     myH3.textContent = `product ${productNumber}`;
+//     myP.textContent = `product ${productNumber} is the best`;
+//     // appending elements  
+//     myProduct.appendChild(myH3);
+//     myProduct.appendChild(myP);
+//     document.body.appendChild(myProduct);
+// }
 
 //////lesson 89:(create elements)
 // let myElement = document.createElement("div");
