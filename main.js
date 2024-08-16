@@ -1,12 +1,239 @@
-//////lesson 97:
+//////lesson 103:
+// alert("hi mouaadh");
+// window.alert("hi mom");
+// this.alert("hi dad");
+// console.log(confirm("are you sure (look at the console)"));//the message will work and true or false will be written in the console
+// console.log(prompt(" whats your favorit day ?", "write a day of the week"));//used to take an information from the user
 
+////// exercices (94 - 101) :
+// exercise 2:
+// let inputAdd = document.forms[0].firstElementChild;
+// let inputRemove = document.forms[0].querySelector("[name='remove']");
+// let element = document.querySelector("#element");
+// element.textContent = "the element";
+// element.style.cssText ="width: 80%; padding: 10px; background-color: #ddd; margin: 15px auto; border-radius: 10px;";
+// let classes = document.querySelector(".classes");
+// classes.style.cssText = "display: flex; justify-content: center; flex-wrap: wrap;";
+// inputAdd.onblur = function () {
+//   if (inputAdd.value !== "") {
+//     let newClasses = inputAdd.value.split(" ");
+//     for(let i = 0; i < newClasses.length; i++){
+//       if(newClasses[i] === "") continue; 
+//       element.classList.add(newClasses[i].toLowerCase());
+//     }
+//     }
+//     classes.innerHTML = "";
+//     for (let i = 0; i < element.classList.length; i++) {
+//       let span = document.createElement("span");
+//       span.textContent = Array.from(element.classList).sort()[i];
+//       span.style.cssText = "color: white; background-color: #fc5721; padding: 10px; margin: 5px; border-radius: 5px;";
+//       classes.appendChild(span);
+//     }
+// };
+// inputRemove.onblur = function () {
+//   if (inputRemove.value !== "") {
+//     let newClasses = inputRemove.value.split(" ");
+//     for(let i = 0; i < newClasses.length; i++){
+//       if(newClasses[i] === "") continue;
+//       element.classList.remove(newClasses[i].toLowerCase());
+//     }
+//     }
+//   classes.innerHTML = "";
+//   for (let i = 0; i < element.classList.length; i++) {
+//     let span = document.createElement("span");
+//     span.textContent = Array.from(element.classList).sort()[i];
+//     span.style.cssText = "color: white; background-color: #fc5721; padding: 10px; margin: 5px; border-radius: 5px;";
+//     classes.appendChild(span);
+//   }
+// };
+// exercise 3:
+  // document.getElementsByTagName("p")[0].remove();
+  // let el = document.getElementsByClassName("our-element")[0];
+  // let start = el.cloneNode();
+  // let end = el.cloneNode();
+  // el.before(start);
+  // el.after(end);
+  // function addAttr(element, content) {
+  //   element.setAttribute("data-value", content);
+  //   element.class = element.textContent = content;
+  //   element.setAttribute("title", `${content} element`);
+  // }
+  // addAttr(start, "start");
+  // addAttr(end, "end");
+// exercise 4:
+  // console.log(document.getElementsByTagName("div")[0].lastChild.textContent.trim());
+// exercise 5:
+//  document.onclick = function(event) {
+//   console.log(`This is ${event.target.tagName}`);
+// }
 
+////// exercices (86 - 93) :
+// exercise 2:
+// let images = document.querySelectorAll("div img");
+// images.forEach(element => {
+//     element.setAttribute("src", "https://elzero.org/wp-content/themes/elzero/imgs/logo.png");
+//     element.alt = "Elzero Logo";
+// });
+// exercise 3:
+// let input = document.querySelector("input");
+// input.oninput = function () {
+//     let dollars = input.value;//in the oninput event the value is updated while any change in the input
+//     let dinars = +(dollars * 220).toFixed(2);
+//     let msg = document.getElementsByClassName("result")[0];
+//     msg.textContent = `${dollars} USD Dollar = ${dinars} Algerian dinar`;
+// }
+// exercise 4:
+// let one = document.querySelector(".one");
+// let two = document.querySelector(".two");
+// one.innerHTML = one.title = one.className;
+// two.innerHTML = two.title = two.className;
+// exercise 5:
+// let images = document.querySelectorAll("img");
+// images.forEach(function (el) {
+//   if (el.hasAttribute("alt")) el.alt = "Old";
+//   else el.alt = "New Elzero";
+//   // el.setAttribute("alt", "New Elzero");//second methos of setting the alt attribute
+// });
+// exercise 6:
+// document.body.style.cssText = "box-sizing: border-box; font-family: sans-serif;";
+// let allEl = document.forms[0].children;
+// for (let i = 0; i < allEl.length - 1; i++)
+// allEl[i].style.cssText = "display: block; margin: 10px auto; width: 200px;";
+// let create = document.forms[0].querySelector("[type='submit']");
+// create.style.cssText = "display: block; margin: 10px auto; width: 200px; color: white; background-color: #00927f";
+// let results = document.forms[0].lastElementChild;
+// create.onclick = function(event){
+//     results.innerHTML = "";//to remove the old content of the results div
+//     let number = document.forms[0].firstElementChild.value;
+//     let text = document.forms[0].querySelector("[type='text']").value;
+//     let type = document.forms[0].querySelector("[name='type']").value;
+//     for(let i = 0; i < number; i++) {
+//         let el = document.createElement(type);
+//         el.textContent = text;
+//         el.style.cssText = "width: 180px; margin: auto; background-color: #fc5521; text-align: center; color: white; border-radius: 10px; padding: 10px;"
+//         results.appendChild(el);
+//     }
+//     event.preventDefault();
+// }
+// results.style.cssText = "display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 20px;";
+
+//////lesson 101:(challenge)
+// the header :
+// document.body.style.cssText = "box-sizing: border-box; font-family: sans-serif;";
+// let header = document.createElement("header");
+// header.style.cssText = "background-color: rgb(240 240 240); display: flex; justify-content: space-between; height: 8vh";
+// let mouaadh = document.createElement("div");
+// mouaadh.textContent = "MOUAADH";
+// mouaadh.style.cssText = "color: #1e935f; font-weight: 800; letter-spacing: 1px; margin: auto 20px";
+// header.appendChild(mouaadh);
+// let ul = document.createElement("ul");
+// ul.style.cssText = "list-style: none; padding: 0; margin: 0; display: flex; color: #666";
+// let home = document.createElement("li");
+// home.id = home.textContent = "home";
+// let About = document.createElement("li");
+// About.id = About.textContent = "About";
+// let Services = document.createElement("li");
+// Services.id = Services.textContent = "Services";
+// let Contact = document.createElement("li");
+// Contact.id = Contact.textContent = "Contact";
+// ul.appendChild(home);
+// ul.appendChild(About);
+// ul.appendChild(Services);
+// ul.appendChild(Contact);
+// header.appendChild(ul);
+// document.body.appendChild(header);
+// for(let i = 0; i < 4; i++)
+// document.getElementsByTagName("li")[i].style.cssText = "padding: 10px; margin: auto";
+// // the body section :
+// let section = document.createElement("section");//work with oveflow to be moe professional
+// section.style.cssText = "min-height: 78vh; padding: 10px; background-color: #ececec; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px";
+// for(let i = 0; i < 15; i++) {
+//     const number = i + 1;
+//     let product = document.createElement("div");
+//     product.style.cssText = "background-color: rgb(240 240 240); display: flex; flex-direction:column; justify-content: center; align-items: center;";
+//     let h2 = document.createElement("h2");
+//     h2.style.cssText = "font-size: 33px; margin-bottom: 0;";
+//     h2.textContent = number;
+//     let p = document.createElement("p");
+//     p.textContent = `product ${number}`;
+//     p.style.cssText = "margin-top: 0;";
+//     product.appendChild(h2);
+//     product.appendChild(p);
+//     section.appendChild(product);
+// }
+// document.body.appendChild(section);
+// // the footer section :
+// let footer = document.createElement("footer");
+// footer.style.cssText = "background-color: #1e935f; height: 8vh; display: flex; justify-content: center;";
+// let div = document.createElement("div");
+// div.textContent = "Copyright 2021";
+// div.style.cssText = "color: white; letter-spacing: 1px; font-weight: 700; margin: auto;";
+// footer.appendChild(div);
+// document.body.appendChild(footer);
+
+//////lesson 100:(addEventListener)
+//// first part of the lesson:
+// let myP = document.getElementsByTagName("p")[0];
+// myP.onclick = one;//when you write one() the message will be printed in console without clicking and when you click nothing happen
+// myP.onclick = two;//here when you click two will override on one so you can't use this way to do more functions when you click on the element(since here i want one & two to be applied when i click)
+// function one () {
+//     console.log("form one");
+// }
+// function two () {
+//     console.log("form two");
+// }
+// window.onload = "mouaadh";//this is not a valid code but this doesn't cause any error
+// //// second part of the lesson:
+// myP.addEventListener("click", function () {
+//     console.log("from click addEventListener");
+// });
+// myP.addEventListener("click", one);
+// myP.addEventListener("click", two);//you can attach more than one event
+// // myP.addEventListener("click", "mouaadh");//this will cause an error
+// myP.onclick = function () {//this function will ovverride on two in the third line of this lesson
+//     let newP = myP.cloneNode(true);
+//     newP.className = "cloned";
+//     document.body.appendChild(newP);
+// }
+// // let cloned = document.querySelector(".cloned");//this cloned element will not be found an it will return null
+// // cloned.onclick = function () {this function will cause an error because the cloned is not found
+// //     console.log("i am cloned");
+// // };
+// document.addEventListener("click", function (e) {//this will work properlyafter clicking the cloned version
+//     if(e.target.className === "cloned")//target here is referring to the element clicked
+//         console.log("i am cloned");
+// });
+
+//////lesson 99:
+// let myDiv = document.getElementById("my-div");
+// let mySpan = document.getElementsByTagName("span")[1].cloneNode(true);//true if you want the contents of the element and false if you don't
+// mySpan.id = `${mySpan.id}-clone`;
+// myDiv.appendChild(mySpan);
+
+//////lesson 98:
+// let el = document.getElementById("my-div");
+// console.log(el.nextSibling);//there s also previousSibling
+// console.log(el.nextElementSibling);//there is also previousElementSibling
+// let span = document.getElementsByTagName("span")[0];
+// span.style.cssText = "border: 1px solid black; border-radius: 50%; padding: 10px; background-color: gold";
+// span.onclick = function () {
+//     span.parentElement.remove();
+// }
+
+//////lesson 97:(in all of these func you can write a string or an element)
+// let el = document.getElementById("my-div");
+// let createdP = document.createElement("p");
+// el.before("hi from js");//before the el
+// el.after(createdP);
+// el.prepend(document.createElement("div"));//before the content of the el
+// el.append("appended text");
+// el.remove();//this will remove the el
 
 //////lesson 96:(css styling)
 // let el = document.getElementById("my-div");
 // el.style.color = "red";
 // el.style.fontWeight = "600";
-// el.style.cssText = "font-weight: 900; color: green; opacity: 1;";
+// el.style.cssText = "font-weight: 900; color: green; opacity: 0.9;";//here you write more than one css property
 // el.style.removeProperty("color");
 // el.style.setProperty("font-size", "30px", "important");
 // document.styleSheets[0].rules[0].style.removeProperty("line-height");//line-height will be removed even if it was important in the css file
@@ -30,7 +257,7 @@
 //     el.classList.remove("add-one", "one");
 // }
 
-//////lesson 94: 
+//////lesson 94:
 // let one = document.querySelector("[name='username']");
 // let two = document.querySelector("[name='age']");
 // window.onload = function () {
@@ -42,10 +269,10 @@
 
 //////lesson 93:(validating a form)
 // document.links[0].onclick = function (event){
-//     console.log(event);//this shows you the event ou are using 
-//     event.preventDefault();//this fun is used to stop the event to not be applied, when i used this instead of event i got an error why 
+//     console.log(event);//this shows you the event ou are using
+//     event.preventDefault();//this fun is used to stop the event to not be applied, when i used this instead of event i got an error why
 // }
-//// let's see how to validate a form : 
+//// let's see how to validate a form :
 // let user = document.querySelector("[name='username']");
 // let age = document.querySelector("[name='age']");
 //// method one of validating a form :
@@ -60,7 +287,7 @@
 //         e.preventDefault();
 //     }
 // }
-//// method two of validating a form : 
+//// method two of validating a form :
 // document.forms[0].onsubmit = function (e) {
 //     if(user.value === "" || user.value.length > 10 || age.value === "")
 //         e.preventDefault();
@@ -91,7 +318,7 @@
 // console.log(myEl.childNodes[3]);
 // console.log(myEl.firstChild);//for texts and elements and comments
 // console.log(myEl.lastChild);
-// console.log(myEl.firstElementChild);//but this is only for elements 
+// console.log(myEl.firstElementChild);//but this is only for elements
 // console.log(myEl.lastElementChild);
 
 //////lesson 90:
@@ -100,12 +327,12 @@
 //     const myProduct = document.createElement("div");
 //     const myH3 = document.createElement("h3");
 //     const myP = document.createElement("p");
-//     // creating texts 
+//     // creating texts
 //     const productNumber = i + 1;
 //     myProduct.className = `product-${productNumber}`;
 //     myH3.textContent = `product ${productNumber}`;
 //     myP.textContent = `product ${productNumber} is the best`;
-//     // appending elements  
+//     // appending elements
 //     myProduct.appendChild(myH3);
 //     myProduct.appendChild(myP);
 //     document.body.appendChild(myProduct);
@@ -117,10 +344,10 @@
 // let myText = document.createTextNode("product One");
 // let myComment = document.createComment("this is div element");
 // myElement.className = "product";
-// myElement.setAttributeNode(myAttr);//use this when you have acctuly an attr and you want to add it 
+// myElement.setAttributeNode(myAttr);//use this when you have acctuly an attr and you want to add it
 // myElement.setAttribute("data-test", "testing");
 // myElement.appendChild(myComment);//adding the comment inside the element
-// myElement.appendChild(myText);//not neccessary to be a div child ,here you just add a text to the div.product 
+// myElement.appendChild(myText);//not neccessary to be a div child ,here you just add a text to the div.product
 // document.body.appendChild(myElement);//here appending the div to the body
 
 //////lesson 88:
@@ -132,13 +359,13 @@
 //         myImg.removeAttribute("alt");
 //         console.log("alt has removed");
 //     }
-//     else{ 
+//     else{
 //         myImg.setAttribute("alt", "image");
 //         console.log(`alt value changed to "image"`);
 //     }
 // }   else {
 //     console.log("attr not found");
-// }        
+// }
 
 //////lesson 87:
 // let myEl = document.getElementsByClassName("js");
@@ -156,7 +383,7 @@
 // document.images[0].id = "pic";
 // document.images[0].className = "pic-class";
 // let myLink = document.querySelector(".link");
-// console.log(myLink.getAttribute("class"));//to show the value of the attribute 
+// console.log(myLink.getAttribute("class"));//to show the value of the attribute
 // // if tha attr exists and empty it returns nothing and if its not present it returns null
 // console.log(myLink.getAttribute("href"));
 // myLink.setAttribute("id","");//to create an attribute and give it a value or just overriding the value if the attr exists
@@ -170,7 +397,7 @@
 // console.log(myTagEl[1]);
 // let myClassEl = document.getElementsByClassName("my-div");
 // console.log(myClassEl);
-// let myQuery = document.querySelector("#my-span");//here we gget just the first id 
+// let myQuery = document.querySelector("#my-span");//here we gget just the first id
 // console.log(myQuery);
 // let myQueryAll = document.querySelectorAll("p");//here we get all the p elements not just the first one
 // console.log(myQueryAll);
@@ -178,7 +405,8 @@
 // console.log(document.body);
 // console.log(document.forms[0].one.value);
 // console.log(document.links[1].href);
-////// exercices (79 - 85) 
+
+////// exercices (79 - 85)
 // exercise 02:
 // Method One
 // let objMethodOne = {
@@ -250,9 +478,9 @@ f: 6
 //     console.log(`The Game Name Is ${array[i]}`);
 //     console.log(`The Publisher Is ${myFavGames[array[i]].publisher}`);
 //     console.log(`The Price Is ${myFavGames[array[i]].price}`);
-  
+
 //     // Check If Nested Object Has Property (bestThree)
-//     if (Object.hasOwn(myFavGames[array[i]], "bestThree")) {//Object.hasOwn(obj, string) returns true if the string is a prop or meth of the object named before
+//     if (Object.hasOwn(myFavGames[array[i]], "bestThree")) {//Object.hasOwn(obj, string) returns true if the string is a property or method of the object named before
 //       console.log("- Game Has Releases");
 //       console.log(`First => ${myFavGames[array[i]].bestThree.one}`);
 //       console.log(`Second => ${myFavGames[array[i]].bestThree.two}`);
@@ -278,7 +506,7 @@ f: 6
 //     prop3: 3,
 //     meth3: function () {
 //         return this.prop3;
-//     }, 
+//     },
 // });
 // let final = Object.assign(target, obj1);//the properties and methods of obj1 are copied to target and assign will return the target object to the final
 // console.log(final);
@@ -315,15 +543,15 @@ f: 6
 // copyUser2.age = 50;
 // console.log(copyUser2);
 // console.log(copyUser2.age);//50
-// console.log(copyUser2.doubleAge());//100 
+// console.log(copyUser2.doubleAge());//100
 
 // "use strict";
 //////lesson 83: (this)
 // console.log(this);
 // var myVar = 100;
-// console.log(this.myVar);// 100  since var-declared variables are properties of window. 
+// console.log(this.myVar);// 100  since var-declared variables are properties of window.
 // let myVar_2 = 100;
-// console.log(this.myVar_2);// undefined since let-declared variables are not properties of window. 
+// console.log(this.myVar_2);// undefined since let-declared variables are not properties of window.
 // function test () {
 //     console.log(this);//this here is Window
 // }
@@ -340,8 +568,6 @@ f: 6
 // });
 // console.log(user.age);
 // console.log(user.ageInDays());
-
-
 
 //////lesson 82:
 //// the traditional way for creating objects
@@ -438,7 +664,19 @@ f: 6
 // console.log(solution); // Elzero Web School
 
 ////lesson 77 :(forEach)
-// repeated after studying all the course
+// let allLis = document.querySelectorAll("li");
+// let allDivs = document.querySelectorAll("div");
+// allLis.forEach(function (el) {
+//     el.onclick = function () {
+//         allLis.forEach(function (el) {
+//             el.classList.remove("active")
+//         });
+//         this.setAttribute("class", "active");
+//         allDivs.forEach(function(el) {
+//             el.style.display = "none";
+//         });
+//     };
+// });
 
 ////lesson 76 :
 // let theBiggest = ["Bla", "Propaganda", "Other", "AAA", "Battery", "Test", "PropagandaTwo"];
@@ -494,6 +732,7 @@ f: 6
 // let mix = "A13BS2ZX";
 // let result = mix.split("").filter(el => !isNaN(+el)).map(el => el * el).join("");
 // console.log(result);
+
 ////lesson 73 :(filter)
 // let friends = ["Ahmed", "Sameh", "Sayed", "Asmaa", "Amgad", "Israa"];
 // let filtered = friends.filter(function (el) {
