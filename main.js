@@ -1,3 +1,165 @@
+//////lesson 112:
+//// first method:
+// let experiment = document.querySelector(".experiment");
+// let ul = document.querySelector("ul");
+// for (let i = 0; i < ul.children.length; i++) {
+//   if (window.localStorage.color === ul.children[i].dataset.color) {
+//     for (let i = 0; i < ul.children.length; i++) {
+//       ul.children[i].removeAttribute("class");
+//     }
+//     ul.children[i].setAttribute("class", "active");
+//   }
+//   experiment.style.backgroundColor = window.localStorage.color;
+// }
+// if (!experiment.style.backgroundColor)
+//   for (let i = 0; i < ul.children.length; i++)
+//     if (ul.children[i].classList.contains("active"))
+//       experiment.style.backgroundColor = ul.children[i].dataset.color;
+// for (let i = 0; i < ul.children.length; i++) {
+//   ul.children[i].onclick = function () {
+//     for (let i = 0; i < ul.children.length; i++) {
+//       ul.children[i].removeAttribute("class");
+//     }
+//     this.setAttribute("class", "active");
+//     window.localStorage.color = this.dataset.color;
+//     experiment.style.backgroundColor = window.localStorage.color;
+//   };
+// }
+//// second method:
+// let experiment = document.querySelector(".experiment");
+// experiment.style.backgroundColor = window.localStorage.color;
+// let lis = document.querySelectorAll("ul li");
+// lis.forEach(el => {
+//     if(getComputedStyle(experiment).backgroundColor === getComputedStyle(el).backgroundColor) {
+//         lis.forEach(el => {
+//             el.classList.remove("active");
+//         });
+//         el.classList.add("active");
+//     }
+// });
+// lis.forEach(el => {
+//     if(el.classList.contains("active")) {
+//         window.localStorage.color = el.dataset.color;
+//         experiment.style.backgroundColor = window.localStorage.color;
+//     }
+//     el.addEventListener("click", function(e){
+//         window.localStorage.color = e.currentTarget.dataset.color;
+//         experiment.style.backgroundColor = window.localStorage.color;
+//         lis.forEach(el => {
+//             el.classList.remove("active");
+//         });
+//         el.classList.add("active");
+//     });
+// });
+
+//////lesson 111:(localStorge)
+// console.log(window.localStorage);
+// // sting items:
+// window.localStorage.setItem("color", "red");
+// window.localStorage.setItem("padding", "20px");
+// window.localStorage.fontWeight = "bold";
+// window.localStorage['fontSize'] = "16px";
+// getting items:
+// console.log(window.localStorage.getItem("color"));
+// console.log(window.localStorage.color);
+// console.log(window.localStorage['color']);
+// document.body.style.backgroundColor = window.localStorage.getItem("color");
+//remove one item:
+// window.localStorage.removeItem("padding");
+//remove all the items:
+// window.localStorage.clear();
+//get key:
+// console.log(window.localStorage.key(0));
+// console.log(window.localStorage.key(1));
+
+//////lesson 110:
+// console.log(window.scrollX === window.pageXOffset);//pageXOffset is targeted to the old browsesrs
+// console.log(window.scrollY === window.pageYOffset);
+// let btn = document.querySelector("button");
+// window.onscroll = function() {
+//     if(window.scrollY >= 600) btn.style.display = "block";
+//     else btn.style.display = "none";
+// }
+// btn.onclick = function() {
+//     window.scrollTo({
+//         top: 0,
+//         left: 0,
+//         behavior: "smooth",
+//     });
+// }
+
+//////lesson 109:
+// location.assign("https://chatgpt.com");
+// setTimeout(function(){
+//     window.stop();//stops the loading of the page which is chatgpt in this case
+// },450);
+// window.print();
+// let myNewWindow = window.open("https://google.com","", "width=500,height=500");
+// let myNewWindow2 = window.open("https://chatgpt.com", "", "width=500,height=500");
+// myNewWindow.focus();//this line dont work, even in the console, why?
+// window.scrollTo({
+//     left: 1500,
+//     top: 1500,
+//     behavior: "smooth",
+// });
+// window.scrollTo(1000,1900);//(x, y) and if you have repeated the code they will not have an effect on the page position
+// window.scrollBy(200,200);//every time you repeat this code it scrolls with those coordinates
+
+//////lesson 108:(history object)
+// console.log(history);
+// console.log(history.length);//it includes the current page
+// // history.back();
+// // history.forward();
+// history.go(0);//it reloads the page infinity time why? ,the normal way it reloads the page when you use 0
+// search for pushstate and replacestate????
+
+//////lesson 107:
+// setTimeout(function() {
+//     // false means the current page will not be saved in the history but it works only if the taget is opening the next url page the same window,
+//     window.open("https://google.com","_blank", "width=400,height=300",true);
+// },2000,)
+
+//////lesson 106:
+// console.log(location);
+// console.log(location.href);
+// // location.href = "https://google.com";
+// // location.href = "/#sec02";
+// // console.log(location.hash); //#sec02 from the previous line
+// // location.href = "https://elzero.org/study/javascript-bootcamp-2021-study-plan/";
+// console.log(location.host);
+// console.log(location.hostname);
+// // location.hostname = "google";//sothat you dont get tired when you write all the href(here the hostname is enough)
+// console.log(location.protocol); //http:
+// console.log(location.port);
+// // location.reload();//it dont stop reloading the page but when i write it in the console i reload the page only one time , why?
+// // location.replace("https://google.com");//this takes you to google but it replaces the current page with google in the history
+// // location.assign("https://google.com");//this takes you to google and it saves the current page in the history
+// console.log(location.search);//(?section%2002) ???? how can i use search???
+
+//////lesson 105:
+// setInterval(sayIAm,2000,"mouaadh");
+// function sayIAm(name) {
+//   console.log(`I am ${name}`);
+// }
+// let div = document.querySelector("div");
+// function countDown() {
+//   div.innerHTML -= 1;
+//   if(div.innerHTML === "0") {
+//     clearInterval(hundler);
+//   }
+// }
+// let hundler = setInterval(countDown, 1000);
+
+//////lesson 104:
+// let handler = setTimeout (sayIAm,3000,"mouaadh");
+// function sayIAm(name) {
+//   console.log(`I am ${name}`);
+// }
+// console.log(handler);
+// document.querySelector("button").onclick = function() {
+//   clearTimeout(handler);
+// }
+
 //////lesson 103:
 // alert("hi mouaadh");
 // window.alert("hi mom");
@@ -18,7 +180,7 @@
 //   if (inputAdd.value !== "") {
 //     let newClasses = inputAdd.value.split(" ");
 //     for(let i = 0; i < newClasses.length; i++){
-//       if(newClasses[i] === "") continue; 
+//       if(newClasses[i] === "") continue;
 //       element.classList.add(newClasses[i].toLowerCase());
 //     }
 //     }
@@ -47,21 +209,21 @@
 //   }
 // };
 // exercise 3:
-  // document.getElementsByTagName("p")[0].remove();
-  // let el = document.getElementsByClassName("our-element")[0];
-  // let start = el.cloneNode();
-  // let end = el.cloneNode();
-  // el.before(start);
-  // el.after(end);
-  // function addAttr(element, content) {
-  //   element.setAttribute("data-value", content);
-  //   element.class = element.textContent = content;
-  //   element.setAttribute("title", `${content} element`);
-  // }
-  // addAttr(start, "start");
-  // addAttr(end, "end");
+// document.getElementsByTagName("p")[0].remove();
+// let el = document.getElementsByClassName("our-element")[0];
+// let start = el.cloneNode();
+// let end = el.cloneNode();
+// el.before(start);
+// el.after(end);
+// function addAttr(element, content) {
+//   element.setAttribute("data-value", content);
+//   element.class = element.textContent = content;
+//   element.setAttribute("title", `${content} element`);
+// }
+// addAttr(start, "start");
+// addAttr(end, "end");
 // exercise 4:
-  // console.log(document.getElementsByTagName("div")[0].lastChild.textContent.trim());
+// console.log(document.getElementsByTagName("div")[0].lastChild.textContent.trim());
 // exercise 5:
 //  document.onclick = function(event) {
 //   console.log(`This is ${event.target.tagName}`);
@@ -202,6 +364,27 @@
 // document.addEventListener("click", function (e) {//this will work properlyafter clicking the cloned version
 //     if(e.target.className === "cloned")//target here is referring to the element clicked
 //         console.log("i am cloned");
+// });
+//// additional infos
+// // first try :(Capturing) from the root of the DOM to the element itself
+// document.getElementById('parent').addEventListener('click', () => {
+//   console.log('Div clicked - Capturing');
+// },true);
+// document.getElementById('child').addEventListener('click', () => {
+//   console.log('UL clicked - Capturing');
+// },true);
+// document.getElementById('grandchild').addEventListener('click', () => {
+//   console.log('LI clicked - Capturing');
+// },true);
+// // second try :(Bubbling) from the element to the root
+// document.getElementById('parent').addEventListener('click', () => {
+//   console.log('Div clicked - Bubbling');
+// });
+// document.getElementById('child').addEventListener('click', () => {
+//   console.log('UL clicked - Bubbling');
+// });
+// document.getElementById('grandchild').addEventListener('click', () => {
+//   console.log('LI clicked - Bubbling');
 // });
 
 //////lesson 99:

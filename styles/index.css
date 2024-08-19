@@ -1,3 +1,67 @@
+/* for lessons 112: */
+/* ul {
+    margin: 50px auto 20px;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    width: fit-content;
+}
+ul li {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    opacity: 0.65;
+}
+ul li:hover {
+    opacity: 1;
+}
+[data-color="red"] {
+    background-color: red;
+}
+[data-color="rgb(7, 218, 7)"] {
+    background-color: rgb(7, 218, 7);
+}
+[data-color="rgb(36, 86, 253)"] {
+    background-color: rgb(36, 86, 253);
+}
+[data-color="black"] {
+    background-color: black;
+}
+.experiment {
+    width: 400px;
+    height: 250px;
+    margin: auto;
+    background-color: yellow;
+    border-radius: 10px;
+} */
+
+/* for lessons 110: */
+/* button {
+    background-color: rgb(55, 234, 247);
+    border: none;
+    border-radius: 20%;
+    padding: 7px;
+    color: black;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 1px 1px 3px rgb(39, 38, 38);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    display: none;
+} */
+
+/* for lessons (106 - 109): */
+/* #sec01,
+#sec02 {
+    height: 2000px;
+} */
 
 /* for exercise 2 of lessons (94 - 101): */
 /* form {
@@ -12,8 +76,6 @@
     border-radius: 10px;
     
 } */
-
-
 
 /* for lessons (95 - 99): */
 /* div {
