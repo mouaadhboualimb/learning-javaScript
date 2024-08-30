@@ -1,3 +1,51 @@
+
+
+
+
+
+
+
+/* for exercise 1 of lessons (110 - 114): */
+/* form {
+    padding-left: 30%;
+}
+h2, p {
+    padding: 0 20px;
+} */
+
+/* for lessons 114: */
+/* body {
+    box-sizing: border-box;
+} */
+/* form {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+    border-radius: 10px;
+}
+[type = "text"] {
+    width: calc(100% - 100px);
+    height: 30px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+[type = "submit"] {
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #f34339;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1.5px gray;
+    opacity: 0.9;
+}
+[type = "submit"]:hover {
+    opacity: 1;
+    box-shadow: 1px 1px 3px gray;
+} */
+
 /* for lessons 112: */
 /* ul {
     margin: 50px auto 20px;

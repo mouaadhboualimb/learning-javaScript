@@ -1,3 +1,504 @@
+////lesson 129:
+// let myArr = [10, 20, 30, 40, 50, "a", "b"];
+// myArr.copyWithin(3);
+// console.log(myArr);//[10, 20, 30, 10, 20, 30, 40]
+// myArr.copyWithin(2,-2);
+// console.log(myArr);//[10, 20, 'a', 'b', 50, 'a', 'b']
+// myArr.copyWithin(2, 5, 7);//the ame as myArr.copyWithin(2, 5);
+// console.log(myArr);//[10, 20, 'a', 'b', 50, 'a', 'b']
+
+////lesson 128:(array.from)
+// console.log(Array.from("mouaadh"));
+// console.log(Array.from(1515426));// it will not work it should be a string of numbers
+// console.log(Array.from("1245246", et => et*2));
+// let myArr = [1, 1, 2, 3, 2 ,1];
+// let mySet = new Set(myArr);
+// console.log(Array.from(mySet));[1, 2, 3]
+// function test(){
+//   return arguments;
+// }
+// arrTest = test(21, "kfg");
+// console.log(arrTest);//Arguments(2) [21, 'kfg', callee: ƒ, Symbol(Symbol.iterator): ƒ]
+// console.log(arrTest[0]);//21 , it works as the array but the next line will be better
+// console.log(Array.from(arrTest));//[21, 'kfg']
+// function arrFromArgs() {
+//   return console.log(Array.from(arguments));
+// }
+// arrFromArgs("hbdf", 21, "fddf", 11);//['hbdf', 21, 'fddf', 11] , this function put the argus in an array and print them in the console
+
+////lesson 127:(WeakMap)//it can except only objects 
+// let myWMap = new WeakMap();
+// let obj = {"hi": 1};
+// myWMap.set(obj, "obj value is one");
+// console.log(myWMap);
+// obj = null;//when you do this tou allow the garbage collector to do its task (deleting the obj from the mWMap)
+// console.log(myWMap);
+
+////lesson 126:(Map)//order the enteries by insertion order
+// let myObject = {};
+// let myNullProto = Object.create(null); //creating object without prototype
+// let myMap = new Map();
+// console.log(myObject);
+// console.log(myNullProto);
+// console.log(myMap);
+// console.log("################");
+// let myNewObject = {
+//   10: "number",
+//   "10": "string",
+// };
+// console.log(myNewObject); //{10: 'string'}
+// let myNewMap = new Map();
+// myNewMap.set(10, "number");
+// myNewMap.set("10", "string");
+// console.log(myNewMap); //{10 => 'number', '10' => 'string'}
+// console.log(myNewMap.get(10));
+// console.log(myNewMap.get("10"));
+// myNewMap.set(true, "boolean");
+// myNewMap.set({a: 1, b: 2}, "object key");
+// myNewMap.set(function(){console.log(`hello`)}, "function key");
+// console.log(myNewMap);
+// console.log(myNewMap.size);
+// console.log("########################(keys)");
+// let iterator = myNewMap.keys();
+// console.log(iterator);//MapIterator {10, '10', true, {…}, ƒ}
+// console.log(iterator.next());
+// console.log(iterator.next().value);//here the value is the key itself
+// console.log(iterator.next().value);
+// console.log(iterator.next().done);//false since the iteration is not well done
+// console.log(iterator.next().value);
+// console.log(iterator.next().done);//true since the iteration is well done
+// console.log("########################(values)");
+// let iterator2 = myNewMap.values();
+// console.log(iterator2);//MapIterator {'number', 'string', 'boolean', 'object key', 'function key'}
+// console.log(iterator2.next());
+// console.log(iterator2.next().value);//here the value is the value itself
+// console.log(iterator2.next().value);
+// console.log(iterator2.next().done);//false since the iteration is not well done
+// console.log(iterator2.next().value);
+// console.log(iterator2.next().done);//true since the iteration is well done
+// console.log("########################(entries)");
+// let iterator3 = myNewMap.entries();
+// console.log(iterator3);//MapIterator {'number', 'string', 'boolean', 'object key', 'function key'}
+// console.log(iterator3.next());//{value: Array(2), done: false} here we have an array of size 2 containing the key and the value
+// console.log(iterator3.next().value);// ['10', 'string'] : here the value is the array of the key and the value
+// console.log(iterator3.next().value);
+// console.log(iterator3.next().done);//false since the iteration is not well done
+// console.log(iterator3.next().value[0]);//ƒ (){console.log(`hello`)}
+// console.log(iterator3.next().done);//true since the iteration is well done
+// console.log("########################(some properties of Map)");
+// console.log(myNewMap.has("10"));//true
+// console.log(myNewMap.delete(10));//true , deleting were done
+// console.log(myNewMap);
+// myNewMap.clear();
+// console.log(myNewMap);
+// let myNewMap2 = new Map([
+//   [15, "num"],
+//   [false, "bool"],
+// ]);
+// console.log(myNewMap2.get(false));//bool
+
+////lesson 124:
+// let mySet = new Set([1,1,1,2,3,"a","a"]);
+// console.log(mySet);
+// let iterator = mySet.keys();// whats the difference between mySet.keys() and mySet.values() ????
+// console.log(iterator);//SetIterator {1, 2, 3, 'a'}
+// console.log(iterator.next());//{value: 1, done: false}
+// console.log(iterator.next().value);
+// console.log(iterator.next().done);
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator);//SetIterator {}
+// mySet.forEach(el => console.log(el));
+// console.log(mySet);
+// console.log("##########################");
+// //WeakSet:
+// let myWeak = new WeakSet([{n1: 5,n2: 5,n3: 6,n4: 7,s: "l"}, {}]);
+// console.log(myWeak);
+// task 01 weakset from javascript.info:
+// let messages = [
+//     {text: "Hello", from: "John"},
+//     {text: "How goes?", from: "John"},
+//     {text: "See you soon", from: "Alice"},
+// ];
+// let weak = new WeakSet();
+// weak.add(messages[0]);
+// console.log(weak);
+// weak.add(messages[1]);
+// console.log(weak);
+// weak.add(messages[0]);
+// console.log(weak);
+// console.log("read messag 0", weak.has(messages[0]));
+// messages.shift();// now weak has 1 element (technically memory may be cleaned later)
+
+////lesson 123:
+// let myData = [1,3,1,2,1,3];
+// let myUniqueData = new Set(myData);
+// let myData = new Set().add(1).add(3).add(1).add(2).add(3);
+// let myUniqueData = new Set();
+// myUniqueData.add(1).add(3).add(1).add(2).add(6).add("A");
+// console.log(myUniqueData.delete(6));//true
+// console.log(`Is set has "A" => ${myUniqueData.has("a".toLocaleUpperCase())}`);//true
+// console.log(myUniqueData);//Set(3) {1, 3, 2}
+// console.log(myUniqueData.size);
+// console.log(myUniqueData[0]);//undefined
+// myUniqueData.clear();
+// console.log(myUniqueData);
+
+////// exercices (115 - 122) :
+////exercise 01:
+// let myNumbers = [1, 2, 3, 4, 5];
+// let [a,,,,e] = myNumbers;
+// console.log(a * e); // 5
+////exercise 03:
+// let arr1 = ["Ahmed", "Sameh", "Sayed"];
+// let arr2 = ["Mohamed", "Gamal", "Amir"];
+// let arr3 = ["Haytham", "Shady", "Mahmoud"];
+// let arr = arr1.concat(arr2, arr3);
+// let [c,,,,,,,a,b] = arr;
+// console.log(`My Best Friends: ${a}, ${b}, ${c}`);// My Best Friends: Shady, Mahmoud, Ahmed
+////exercise 4:
+// const member = {
+//     age: 30,
+//     working: false,
+//     country: "Egypt",
+//     hobbies: ["Reading", "Swimming", "Programming"],
+//   };
+//   let {age: a, working: w, country: c, hobbies: [h1], hobbies: [,,h3]} = member;
+//   console.log(`My Age Is ${a} And Iam ${w ? "" : "Not"} Working`);
+//   console.log(`I Live in ${c}`);
+//   console.log(`My Hobbies: ${h1} And ${h3}`);
+////exercise 5:
+// const game = {
+//   title: "YS",
+//   developer: "Falcom",
+//   releases: {
+//     "Oath In Felghana": ["USA", "Japan"],
+//     "Ark Of Napishtim": {
+//       US: "20 USD",
+//       JAP: "10 USD",
+//     },
+//     Origin: "30 USD",
+//   },
+// };
+// const {
+//   title: t,
+//   developer: d,
+//   releases: {
+//     "Oath In Felghana": [u, j],
+//     "Ark Of Napishtim": { US: u_price, JAP: j_price },
+//   },
+//   releases: { Origin: or },
+// } = game;
+// const [o,a] = Object.keys(game.releases);
+// console.log(`My Favourite Games Style Is ${t} Style`);
+// console.log(`And I Love ${d} Games`);
+// console.log(`My Best Release Is ${o} It Released in ${u} & ${j}`);
+// console.log(`Although I Love ${a}`);
+// console.log(`${a} Price in USA Is ${u_price}`);
+// console.log(`${a} Price in Japan Is ${j_price}`);
+// console.log(`Origin Price Is ${or}`);
+
+////lesson 122:(challenge)
+// let chosen = 2;
+// let myFriends = [
+//   { title: "Osama", age: 39, available: true, skills: ["HTML", "CSS"] },
+//   { title: "Ahmed", age: 25, available: false, skills: ["Python", "Django"] },
+//   { title: "Sayed", age: 33, available: true, skills: ["PHP", "Laravel"] },
+// ];
+// function info(chosen = 1, {title = "mouadh", age = 20, available = true, skills: [, c = "javascript"] = [] } = {}) {
+//   console.log(title);
+//   console.log(age);
+//   console.log(available ? "available" : "not available");
+//   console.log(c);
+// }
+// info(chosen, myFriends[chosen - 1]);
+
+////lesson 121:(easy)
+
+////lesson 120:
+// const user = {
+//   theName: "Osama",
+//   theAge: 39,
+//   skills: ["HTML", "CSS"],
+//   addresses: {
+//     egypt: "Cairo",
+//     ksa: "Riyadh",
+//   },
+// };
+// function showInfo({theName: n = "mouadh",theAge: a = 20, skills: [,s = "javascript"] = [], addresses: {ksa: k = "Maka"} = {}} = {}) {// we did the {} to be the default value when we dont give any object to the function as a parameter
+//   console.log(`my name is ${n}, and my age is ${a}, and my best skill is ${s}, and i live in ${k}`);
+// }
+// showInfo(user);
+// showInfo();
+
+////lesson 119:(destructuring in objects 02)
+// const user = {
+//   theName: "Osama",
+//   theAge: 39,
+//   skills: ["HTML", "CSS"],
+//   addresses: {
+//     egypt: "Cairo",
+//     ksa: "Riyadh",
+//   },
+// };
+// const {
+//   theName: n,
+//   theAge: a,
+//   skills: [,c],
+//   skills: [, , f = "football"],
+//   skills,
+//   skills: sk ,
+//   addresses: { egypt: e },
+// } = user;
+// console.log(n);
+// console.log(a);
+// console.log(skills);
+// console.log(sk); //the same message as the above one
+// console.log(c);//css
+// console.log(f);
+// console.log(e);
+// console.log("*******************");
+// const {
+//     egypt: eg,
+//     ksa,
+// } = user.addresses;
+// console.log(eg);
+// console.log(ksa);
+// const {theAge, ...rest} = user;
+// console.log(rest);//{theName: 'Osama', skills: Array(2), addresses: {…}}
+
+////lesson 118:(destructuring in objects 01)
+// const user = {
+//     name: "mouadh",
+//     age: 20,
+//     job: "webDev",
+//     country: "algeria",
+// };
+// let {age, name, country} = user;//the order doesn't matter
+// console.log(name);
+// console.log(age);
+// console.log(country);//algeria
+// const user2 = {
+//     name: "iyad",
+//     age: 19,
+//     job: "staff",
+//     country: "algeria",
+// };
+// let name = user2.name;
+// let age = user2.age;
+// let job = user2.job;
+// let country = user2.country;
+// console.log(name);
+// console.log(age);
+// console.log(job);
+// console.log(country);
+// ({name, age ,job, country} = user2);//when you want to reassign the values of the vars you should use the parenthesies to show that it is not a code block
+// console.log(name);
+// console.log(age);
+// console.log(job);
+// console.log(country);
+
+////lesson 117:(swapping using destructuring in arrays)
+// let book = "video";
+// let video = "book";
+// console.log("book is :",book);
+// console.log("video is:",video);
+// console.log(`******************`);
+// [book, video] = [video, book];
+// console.log("book is :",book);
+// console.log("video is:",video);
+
+////lesson 116:(destructuring in arrays 02)
+// let myFriends = ["Ahmed", "Sayed", "Ali", ["Shady", "Amr", ["Mohamed", "Gamal"]]];
+// console.log(myFriends[3][2][1]);
+// let [,,,[a,,[,b]]] = myFriends;
+// console.log(a);
+// console.log(b);
+// //new infos from javascript.info
+// let [firstName, surname] = "mouaadh bouali".split(' ');
+// console.log("firstName : ",firstName);
+// console.log("surname : ",surname);
+// let [a,b,c] = "def";
+// console.log(a,"\n",b,"\n",c,"\n");
+// let [a,b,...rest] = ["mouaadh","iyad","tasnim","maria"];
+// console.log(rest); //["tasnim","maria"]
+
+////lesson 115:(destructuring in arrays 01)
+// let a = 1;
+// let b = 2;
+// let c = 3;
+// let d = 4;
+// let myfriends = ["samir", "iyad", "mouaadh", "abdelhakim"];
+// [a, b = "kais", c,, d, e = prompt("name","write your name")] = myfriends;
+// console.log(a);
+// console.log(b);
+// console.log(c);
+// console.log(d);//undefined is the default value
+// console.log(e);
+
+////// exercices (111 - 114) :
+////exercise 01:
+// document.querySelectorAll("option").forEach((el) => (el.textContent = el.value));
+// let h2 = document.querySelector("h2");
+// let p = document.querySelector("p");
+// let font = document.forms[0][0]; //in this case [0][0] doesn't mean the label as seen in the html file, it means the select font
+// let color = document.forms[0][1];
+// let size = document.forms[0][2];
+// let arr = [font, color, size];
+// function check() {
+//   function checkEl(nameEl){
+//     if(nameEl.value) localStorage[nameEl.name] = nameEl.value;
+//   }
+//   arr.forEach(el => checkEl(el));
+// }
+// function style() {
+//   h2.style.cssText = p.style.cssText = `font-family: ${localStorage.font}; color: ${localStorage.color}; font-size: ${localStorage.size}px`;
+// }
+// function checkLocalStorage(nameEl) {
+//     nameEl.value = localStorage[nameEl.name] || "";
+// }
+// arr.forEach(el => checkLocalStorage(el));
+// check();
+// style();
+// arr.forEach(el => el.addEventListener("change", function (e) {
+//   localStorage[e.target.name] = e.target.value;
+//   style();
+// })
+// );
+////exercise 02:
+// document.querySelectorAll("option").forEach((el) => (el.textContent = el.value));
+// let name = document.querySelector('[type="text"]');
+// let age = document.querySelector('[type="number"]');
+// let select = document.querySelector("select");
+// name.addEventListener("change", (e) => (sessionStorage.name = e.target.value));
+// age.addEventListener("change", (e) => (sessionStorage.age = e.target.value));
+// select.addEventListener("change",(e) => (sessionStorage.select = e.target.value));
+// window.addEventListener("load", (_) => {
+//   if (sessionStorage.name) name.value = sessionStorage.name;
+//   if (sessionStorage.age) age.value = sessionStorage.age;
+//   if (sessionStorage.select) select.value = sessionStorage.select;
+// });
+
+////// exercices (102 - 110) :
+////exercise 01:
+// let array = prompt("Print Number From ... to ...", "Example: 5-20").split("-");
+// for(let i = Math.min(+array[0], +array[1]); i <= Math.max(+array[0], +array[1]); i++) {
+// console.log(i);
+// }
+////exercise 02:
+// if(!document.querySelector(".message") || !document.querySelector(".overlay")) {
+//     setTimeout(() => {
+//         document.body.style.cssText = " height: 2000px;";
+//         let overlay = document.createElement("div");
+//         overlay.classList.add("overlay");
+//         overlay.style.cssText = "position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: #999; opacity: 0.5;";
+//         document.body.appendChild(overlay);
+//         let div = document.createElement("div");
+//         div.classList.add("message")
+//         div.style.cssText = "background-color: white; padding: 30px; text-align: center; width: 60vw; box-shadow: 2px 2px 2px black; position: absolute; top: 150px; left: 50%; transform: translate(-50%, -50%); opacity: 1; z-index: 1;";
+//         div.innerHTML = "<h2>Welcom</h2><p>Welcome to Mouaadh website</p><button class='close'></button>";
+//         div.lastChild.style.cssText = "width: 25px; height: 25px; border-radius: 50%; border: 1px solid red; color: white; background-color: red; position: absolute; right: -12.5px; top: -12.5px; cursor: pointer; display: flex; justify-content: center; align-items: center;";
+//         div.lastChild.textContent = "×";
+//         div.lastChild.setAttribute("tabindex", "0");//to add the close button to the tab list
+//         document.body.appendChild(div);
+//         document.querySelector(".message").setAttribute("tabindex", "-1");//to make the div focusable just by focus(), and not add it to the list of the tab key
+//         document.querySelector(".message").focus();
+//     }, 1000);
+//     document.addEventListener("click", function(e) {
+//         if(e.target.classList.contains("close")){
+//             e.target.parentElement.remove();
+//             document.querySelector('.overlay').remove();
+//         }
+//     });
+// }
+////exercise 03:
+// let hundler = setInterval(function() {
+//     document.querySelector("div").textContent -= 1;
+//     if(document.querySelector("div").textContent === "0")
+//     clearInterval(hundler);
+// },1000);
+////exercise 04:
+// let hundler = setInterval(function() {
+//     document.querySelector("div").textContent -= 1;
+//     if(document.querySelector("div").textContent === "0"){
+//     clearInterval(hundler);
+//     location.assign("https://elzero.org");
+//     }
+// },1000);
+////exercise 05:
+// let hundler = setInterval(function() {
+//     document.querySelector("div").textContent -= 1;
+//     if(document.querySelector("div").textContent === "5")
+//     window.open("https://elzero.org", "", "width= 400, height=400, left=900, top=100 ");
+//     if(document.querySelector("div").textContent === "0"){
+//     clearInterval(hundler);
+//     }
+// },1000);
+
+//////lesson 114:(challenge)
+// localStorage.clear();
+// let taskss = [20, 15, 55, 51];
+// localStorage.clear();
+// localStorage.setItem('tasks', JSON.stringify(taskss));
+// taskss.push(25);
+// localStorage.setItem('tasks', JSON.stringify(taskss));
+// console.log(JSON.parse(localStorage.getItem("tasks"))[taskss.length - 1]);
+// this version is using array parsed from JSON , after ending the course do it without a mediator array????
+// let task = document.querySelector("[type='text']");
+// let btn = document.querySelector("[type='submit']");
+// let tasks = document.querySelector(".tasks");
+// let array =[];
+// function createTask(content) {
+//     let el = document.createElement("div");
+//     el.style.cssText = "margin: 20px; padding: 20px; background-color: #eee; border-radius: 10px; ";
+//     let span = document.createElement("span");
+//     span.style.cssText = "display: flex; justify-content: space-between; background-color: white; border-radius: 10px;";
+//     let spanInside = document.createElement("span");
+//     spanInside.textContent = content;
+//     span.appendChild(spanInside);
+//     let deletebtn = document.createElement("button");
+//     deletebtn.style.cssText = "background-color: #f34339; padding: 3px; color: white; border: none; border-radius: 5px; cursor: pointer; box-shadow: 1px 1px 1.5px gray;";
+//     deletebtn.textContent = "delete";
+//     span.appendChild(deletebtn);
+//     el.appendChild(span);
+//     tasks.appendChild(el);
+// }
+// if(localStorage.tasks) {
+//     JSON.parse(localStorage.tasks).forEach(el => {
+//         array.push(el);
+//         createTask(array[array.length - 1]);
+//     });
+// }
+// btn.addEventListener("click", function(e) {
+//     if(task.value !== "") {
+//         array.push(task.value);
+//         localStorage.tasks = JSON.stringify(array);
+//         createTask(array[array.length - 1]);
+//         task.value = "";
+//     }
+//     e.preventDefault();
+// });
+// document.addEventListener("click", function(e){
+//     if(e.target.textContent === "delete") {
+//         array.splice(array.indexOf(e.target.parentElement.children[0].textContent), 1);
+//         localStorage.tasks = JSON.stringify(array);
+//         e.target.parentElement.parentElement.remove();
+//     }
+// });
+
+//////lesson 113:
+// window.localStorage.setItem("color", "red");
+// window.sessionStorage.setItem("color", "green");
+// let name = document.querySelector("input");
+// name.onblur = function() {
+//     if(name.value)
+//     window.sessionStorage.setItem("name", name.value);
+// }
+// name.onmouseenter = function() {
+//     if(sessionStorage.name)
+//     name.value = sessionStorage.name;
+// }
+
 //////lesson 112:
 //// first method:
 // let experiment = document.querySelector(".experiment");
