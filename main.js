@@ -1,3 +1,886 @@
+//////lesson 165:
+function* abc(){
+    yield "a";
+    yield "b";
+    yield "c";
+}
+function* def(){
+    yield "d";
+    yield "e";
+    yield "f";
+}
+function* delegate() {
+    yield* abc();
+    yield* def();
+    yield "h";
+    yield* [1, 2, 3];
+    yield {"k": 1,"l": 2,"m": 3};
+}
+for(let val of delegate())
+    console.log(val);
+
+//////lesson 164:(generator function)
+// function* gene() {
+//     yield 1;
+//     console.log(`sedfuyeqb fedfebvuv jducfd`);
+//     yield 2;
+//     yield 3;
+// }
+// let gen = gene();
+// console.log(typeof gen);
+// console.log(gen);
+// console.log(gen.next());
+// console.log(gen.next());
+// console.log(gen.next());
+// console.log(gen.next());
+// for(let val of gene())//if you write gen inplace of gene() nothing will be printed
+//     console.log(val);
+
+//////lesson 163:(trackinjg opertations time)(search for performance.now() and performance.mark()) ????
+// let start = new Date();
+// for(let i = 0; i < 1000; i++)
+//     document.write(`<div>${i+1}</div>`);
+// let end = new Date();
+// let diff = end - start;
+// console.log(diff);
+
+//////lesson 162:(new Date() accept from you a number of milliseconds or a string  like 1,2,4 and 5 below , and it accept numbers like date3 below)
+// let date1 = new Date("1982-02-02");//here 02 means Februery
+// console.log(date1);
+// let date2 = new Date("82");
+// console.log(date2);//Fri Jan 01 1982 00:00:00 GMT+0100
+// let date3 = new Date(2002,02,02,02,02,02);//here 023 means March(using the index)
+// console.log(date3);//Sat Mar 02 2002 02:02:02 GMT+0100 
+// let date4 = new Date("2004-07-18T09:10:13Z");//when you write (Z) means that (09) is in Grinich so it will write (10) here in your country
+// console.log(date4);//Sun Jul 18 2004 10:10:13 GMT+0100 
+// let date5 = new Date("2004-07-18T09:10:13");//when you don't write (Z),this means that (09) is in your country
+// console.log(date5);//Sun Jul 18 2004 09:10:13 GMT+0100 
+// let date6 = new Date(10000);
+// console.log(date6);//Thu Jan 01 1970 00:00:10 GMT+0000
+// console.log(Date.parse(72));//63072000000 number of ms from 1970 to 1972// and parse accepts only one argument and it is the same as [console.log(Date.parse("72"))]
+// console.log(Date.parse("2004-07-18T09:10:13Z"));//1090141813000
+
+//////lesson 161:(set date and time)(all of these functions a negative value or a value bigger than the normal ones)
+// let dateNow = new Date();
+// console.log(dateNow);
+// console.log("#".repeat(61));
+// dateNow.setTime(10000);//it accept a number in (ms)
+// console.log(dateNow);//Thu Jan 01 1970 00:00:10 GMT+0000
+// console.log("#".repeat(61));
+// dateNow.setDate(-1);
+// console.log(dateNow);//Tue Dec 30 1969 00:00:10 GMT+0000
+// console.log("#".repeat(61));
+// dateNow.setDate(20);
+// console.log(dateNow);//Sat Dec 20 1969 00:00:10 GMT+0000 
+// console.log("#".repeat(61));
+// dateNow.setFullYear(2004, 00, 14);//there is also setMonth()
+// console.log(dateNow);//Wed Jan 14 2004 00:00:10 GMT+0100
+// console.log("#".repeat(61));
+// dateNow.setHours(00,56,04,303);//there is also setMinutes() and setSeconds() and setMilliseconds()
+// console.log(dateNow);//Wed Jan 14 2004 00:56:04 GMT+0100
+
+//////lesson 160:(get date and time)
+// let dateNow = new Date();
+// let birthday = new Date("jul 18 2004 02:02:04");
+// console.log(dateNow);//Fri Sep 13 2024 16:32:28 GMT+0100 
+// console.log(birthday);//Sun Jul 18 2004 02:02:04 GMT+0100 
+// let diff = dateNow - birthday;
+// console.log(diff);//636123070510
+// console.log(dateNow.getTime());//this is the same as (console.log(date.now())), in (ms)
+// console.log(birthday.getTime());//this is the time in (ms) from 1970 to by birthday
+// console.log(dateNow.getDate());//13 (the number of the day in the month)
+// console.log(dateNow.getFullYear());//2024
+// console.log(dateNow.getMonth());//8, the (index)!! of the month
+// console.log(dateNow.getDay());//5, the (index)!! of the day in the week(5 => Fri)
+// console.log(dateNow.getHours());//16, the hour right now
+// console.log(dateNow.getMinutes());//32, the minutes in the time right now
+// console.log(dateNow.getSeconds());//28, the seconds in the time right now
+// console.log(dateNow.getMilliseconds());//264, the milliseconds in the time right now
+
+//////lesson 159:
+// console.log(Date.prototype);
+// let dateNow = new Date();
+// console.log(dateNow);
+// console.log(Date.now());//1726234390516 in milliseconds from 1970
+
+////// exercices (147 - 158) :
+//exercise 02:
+// class Phone {
+//     constructor(name, serial, price) {
+//       this.name = name;
+//       this.serial = serial;
+//       this.price = price;
+//     }
+//   }
+// class Tablet extends Phone {
+//     constructor(name, serial, price, size){
+//         super(name,serial,price);
+//         this.size = size || "Unknown";
+//     }
+//     fullDetails() {
+//         return `${this.name} Serial is ${this.serial} and Size is ${this.size}`;
+//     }
+// }
+//   let TabletOne = new Tablet("iPad", 100200300, 1500, 12.9);
+//   let TabletTwo = new Tablet("Nokia", 350450650, 800, 10.5);
+//   let TabletThree = new Tablet("LG", 250450650, 650);
+//   console.log(`${TabletOne.fullDetails()}`);
+//   console.log(`${TabletTwo.fullDetails()}`);
+//   console.log(`${TabletThree.fullDetails()}`);
+//exercise 03:
+// Edit The Class
+// class User {
+//     #c;
+//     constructor(username, card) {
+//       this.u = username;
+//       this.#c = card;
+//     }
+//     get showData() {
+//         let regex = /(\d{4})-?(\d{4})-?(\d{4})-?(\d{4})/g;
+//         return `Hello ${this.u} Your Credit Card Number Is ${this.#c.toString().replace(regex, "$1-$2-$3-$4")}`;
+//     }
+//   }
+//   let userOne = new User("Osama", "1234-5678-1234-5678");
+//   let userTwo = new User("Ahmed", "1234567812345678");
+//   let userThree = new User("Ghareeb", 1234567812345678);
+//   console.log(userOne.showData);// Hello Osama Your Credit Card Number Is 1234-5678-1234-5678
+//   console.log(userTwo.showData);// Hello Ahmed Your Credit Card Number Is 1234-5678-1234-5678
+//   console.log(userThree.showData);// Hello Ghareeb Your Credit Card Number Is 1234-5678-1234-5678
+//   console.log(userOne.c); // Undefined
+//exercise 04:
+// String.prototype.addLove = function(){
+//     console.log(`I Love ${this} Web School`);
+// }
+// let myStr = "Elzero";
+// console.log(myStr.addLove()); // I Love Elzero Web School
+//exercise 05:
+// const myObj = {
+//     username: "Elzero",
+//     id: 100,
+//     score: 1000,
+//     country: "Egypt",
+// };
+// Object.defineProperties(myObj, {
+//     score: {
+//         writable: false,
+//     },
+//     id: {
+//         enumerable: false,
+//     },
+// });
+// delete myObj.country;
+//   myObj.score = 500;
+//   for (let prop in myObj) {
+//     console.log(`${prop} => ${myObj[prop]}`);
+//   }
+//   console.log(myObj);
+
+////lesson 156:(prototype)
+// class User {
+//     constructor(name) {
+//         this.n = name;
+//     }
+// }
+// User.prototype.age = 50;//here we add age to the prototype,(you'll find it inside the prototype before the constructor)
+// User.prototype.sayHi = function(){
+//     return console.log("Hi");
+// }
+// let user1 = new User("momo");
+// console.log(user1);
+// console.log("#".repeat(25));
+// class Users {
+//     constructor(name) {
+//         this.n = name;
+//     }
+// }
+// Users.age = 50;//but here we add age to the constructor,(you'll find it inside the prototype inside the constructor)
+// let users1 = new Users("momo");
+// console.log(users1);
+
+////lesson 154: (encapsulation)
+// class User {
+//     // let #e;//if there is a problem you can know it by clicking (ctrl + k + i)
+//     #e;
+//     constructor (name, e) {
+//         this.name = name;
+//         this.#e = e;
+//     }
+//     getSalary(){
+//         return this.#e;
+//     }
+// }
+// let user1 = new User("momo",1542);
+// console.log(user1);//{name: 'momo', #e: 1542}
+// // console.log(user1.#e);//this will throw an error since (#e) is a private property
+// // console.log(Object.getOwnPropertyDescriptor(user1, "#e"));//undefined
+// // user1.#e = 5;//this will throw an error
+// console.log(user1.getSalary());
+//// Some experiences:
+// class User {
+//     // let #e;//if there is a problem you can know it by clicking (ctrl + k + i)
+//     #e;
+//     constructor (name, e) {
+//         this.name = name;
+//         this.#e = e;
+//     }
+//     getE(){
+//         return this.#e;
+//     }
+// }
+// let user1 = new User("iyad", 1500);
+// console.log(user1);
+// console.log(user1.getE());//1500
+// class Admin extends User {
+//     constructor(name, e, s) {
+//         super(name, e);
+//         this.s = s;
+//     }
+// }
+// let admin1 = new Admin("momo", 1542, 2);
+// console.log(admin1.getE());//1542
+
+////lesson 26 from JavaScript OOP course:
+//[1] arrow functions do not have a prototype property
+//(sayHi(){}) === (sayHi = function(){})
+
+////lesson 25 from JavaScript OOP course:
+// let obj = {};
+// Object.defineProperties(obj,{
+//     name: {
+//         value: "mdfnjf",
+//         configurable: true,
+//     },
+//     age: {
+//         value: 20,
+//         writable: false,
+//     },
+// });
+// console.log(obj);
+
+////lesson 23 from JavaScript OOP course:(getters & setters)
+// class User {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+//   get sayHello() {//here sayHello is changed to a property after using get
+//     console.log(`hello ${this.name} from user's class`);
+//   }
+//   sayHi() {//sayHi is considered a method becouse it is not like (sayGoodMorning)
+//     console.log(`hi ${this.name}`);
+//   }
+//   sayGoodMorning = function() {//sayGoodMorning is considered as a property not a method becouse it get the result from the function, (it is not like sayHi method)
+//     console.log(`good morning ${this.name}`);
+//   }
+//   changeName(newName) {
+//       this.name = newName;
+//   }
+//   set changeAge(newAge) {//here sayHello is changed to a property after using set
+//     this.age = newAge;
+// }
+// }
+// let user1 = new User("mouaadh", 20);
+// user1.sayHello; // here we didn't use () becouse it is not a function after using get
+// user1.sayHi();
+// user1.changeName('mahmoud');
+// console.log(user1.name);//mahmoud
+// user1.changeAge = 22; //here we didn't use () becouse it is not a function after using set ,  and we didn't give 22 as an argument
+// console.log(user1.age);//22
+// some new infos from javascript.info abou (setters/getters):
+// let obj = {
+//   name: "mouaadh",
+//   age: 20,
+//   get info() {
+//     return `the age of ${this.name} is ${this.age}`; //this here refer to the obj
+//   },
+//   set info(value) {
+//     this.name = value.split(" ")[value.split(" ").length - 3];
+//     this.age = value.split(" ")[value.split(" ").length - 1];
+//   },
+// };
+// console.log(obj.name);
+// console.log(obj.info); //the age of mouaadh is 20
+// obj.info = "the age of tasnim is 15"; //this line will have no effect on anything
+// console.log(obj.info); //the age of tasnim is 15
+// console.log(obj); //{name: 'tasnim', age: '15'}
+// console.log(Object.getOwnPropertyDescriptor(obj, "info")); //{enumerable: true, configurable: true, get: ƒ, set: ƒ}, there is neither writable nor value in the descriptor
+// Object.defineProperty(obj, "password",{
+//   get() {
+//     return `${this.name}$${+this.age + 24}#${this.name}@${+this.age + 298}`;
+//   },
+//   set(value) {
+//     this.name = value.match(/^[a-z]+(?=\$)/i)[0];
+//     this.age = value.match(/(?<=@)\d+$/)[0] - 298;
+//   },
+// });
+// console.log(obj.password);//tasnim$39#tasnim@313
+// obj.password = "momo$fjhg1245@318";
+// console.log(obj.password);//momo$44#momo@318
+// console.log(obj);//{name: 'momo', age: 20} 
+////part two(smarter getters/setters)
+// let user = {
+//     get name() {
+//         return this._name || "momo";
+//     },
+//     set name(value) {
+//         if(value.length < 4)
+//             console.log("name is too short");
+//         else this._name = value;
+//     }
+// }
+// console.log(user.name);//momo
+// user.name = "jgpj";
+// console.log(user.name);//jgpj
+// user.name = "kkk";//name is too short
+// console.log(user.name);//jgpj
+// user.name = "kkkml";
+// console.log(user.name);//kkkml
+
+////lesson 22 from JavaScript OOP course:
+// class User {
+//     static counter = 0;
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//         User.counter++;
+//         this.sayHi = function() {
+//             console.log(`hi ${this.name}`);
+//         }
+//     }
+//     sayHello = function() {
+//         console.log(this);//User {name: 'n', age: 15, sayHello: ƒ, sayHi: ƒ}
+//         console.log(`hello ${this.name} from user's class`);
+//     }
+//     static arriseObj = function () {
+//         console.log(this);//class User{...}
+//         console.log(`${this.counter} Object created`);
+//     }
+// }
+// class Admin extends User {
+//     constructor(name, age, account) {
+//         super(name, age);
+//         this.account = account;
+//     }
+//     iamAdmin = function () {
+//         console.log(`i am Admin`);
+//     }
+//     sayHello = function() {//here this method will ovveride on the User's method
+//         console.log(`hello ${this.name} from admin's class`);
+//     }
+// }
+// let adm1 = new Admin("momo", 20, 1254);
+// let adm2 = new Admin("mom", 2);
+// console.log(adm1);
+// console.log(adm1.account);
+// adm1.sayHello();//hello momo from admin's class
+// console.log(Admin.prototype.__proto__.constructor.counter);//2, we use prototype for the classes theirselves an we use (__proto__) for other things
+// console.log(Object.__proto__ === Object.prototype);//false
+
+////lesson 21 from JavaScript OOP course:
+// class User {
+//     static counter = 0;
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//         User.counter++;
+//         this.sayHi = function() {
+//             console.log(`hi ${this.name}`);
+//         }
+//     }
+//     sayHello = function() {
+//         console.log(this);//User {name: 'n', age: 15, sayHello: ƒ, sayHi: ƒ}
+//         console.log(`hello ${this.name}`);
+//     }
+//     static arriseObj = function () {
+//         console.log(this);//class User{...}
+//         console.log(`${this.counter} Object created`);
+//     }
+// }
+// console.log(User.counter);//0
+// let user1 = new User("n", 15);
+// console.log(user1);
+// let user2 = new User("jj", 19);
+// console.log(User.counter);//2
+// User.arriseObj();//2 Object created
+// user1.sayHello();//hello n
+
+////lesson 20 from JavaScript OOP course:
+// class User {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//         this.sayHi = function() {
+//             console.log(`hi ${this.name}`);
+//         }
+//     }
+//     sayHello = function() {
+//         console.log(`hello ${this.name}`);
+//     }
+// }
+// let user1 = new User("mouaadh", 20);
+// console.log(user1);
+// user1.sayHi();
+// user1.sayHello();
+// console.log(typeof User);//function
+// console.log(typeof (class hg{}));//function
+// console.log(typeof User.constructor);//function
+// console.log(User === User.prototype.constructor);//true
+
+////lesson 19 from JavaScript OOP course:
+// function User(name) {
+//     this.name = name;
+//     // method 01 of error:
+//     // if(!(this instanceof User)) {
+//     //     throw new Error("User must be called with 'new' keyword");
+//     // }
+//     // method 01 of error:(using ES6)
+//     if (!new.target){
+//         throw new Error("User must be called with 'new' keyword");//why exactly (new.target)
+//     }
+// }
+// let user1 = new User("momo");//in javascript a function is an object , so here the right side (creates an empty object) and( asseign it to "this" context) and (user1.__proto__ = User.__proto__) and finaly (it returns "this")
+// let user2 = User("kkik");//this will throw an error
+
+////lesson 18 from JavaScript OOP course:
+// console.log(00217);//143 since javascript consider it as an octal number because of the zeroes in the beginig so 2*8^2 + 1*8 + 7 = 143
+// console.log(+"00217");//217
+// String.prototype.zFill = function(num) {
+//     let difference = num - this.length;
+//     if(difference > 0)
+//         return `${"0".repeat(difference)}${this}`;
+//     return this.toString();
+// }
+// console.log("1542".zFill(6));//001542
+// console.log("1542".zFill(3));//1542
+
+////lesson 17 from JavaScript OOP course:
+// function User(name) {
+//     this.n = name;
+// }
+// User.prototype.mr = function() {
+//     console.log(`Mr.${this.n}`);
+// }
+// let user1 = new User("momo");
+// user1.mr();
+// Object.prototype.name = "momo";
+// console.log(user1.__proto__.__proto__.name);//momo
+// let obj = Object.create({});
+// console.log(obj.__proto__.name);//momo
+
+////lesson 16 from JavaScript OOP course:
+// function User(name) {
+//     this.n = name;
+// }
+// let user1 = new User("momo");
+// console.log(user1);
+// console.log(User.prototype);
+
+////lesson 15 from JavaScript OOP course:
+// let num1 = new Number(2);
+// console.log(num1);//Number {2}
+// document.write(num1);//2
+// let str = new String("fmgrifg");
+// console.log(str);//String {'fmgrifg'}
+// document.write(str);// fmgrifg
+
+////lesson 12 from JavaScript OOP course:
+// function Phone(serial) {
+//     this.serial = serial;
+// }
+// let ph1 = new Phone(51246);
+// let ph2 = new Phone(79854);
+// let ph3 = Phone(64514);//it behaves as a simple function not a class
+// console.log(window.serial);//64514 because of the this inside the function which refer to the global object (window)
+// // console.log(ph3.serial);//error sinse the function is not behaveing as a class when it is called without the (new) keyword
+// console.log(ph1.serial);
+// console.log(ph2.serial);
+// console.log(ph1 instanceof Phone);//true
+// console.log(Phone === ph1.constructor);//true
+
+////lesson 11 from JavaScript OOP course:
+// function User(name, age, salary){
+//     this.n = name;
+//     this.a = age;
+//     this.s = salary;
+//     this.fun = function(){
+//       console.log("this is a function (method)");
+//      };
+// }
+// let mouaadh = new User("mouaadh", 20, 1000000);
+// console.log(mouaadh);//User {n: 'mouaadh', a: 20, s: 1000000, fun: ƒ}
+// mouaadh.fun();//this is a function (method)
+
+////lesson 10 from JavaScript OOP course:
+// const user = {
+//     name: "momo",
+//     age: 20,
+//     tallInCm: "180cm",
+// };
+// for(let el in user)
+//     console.log(`the ${el} is => ${user[el]}`);//user.el doesnt work because (typeof el is string) so you have to use [string]
+// let finalData = "";
+// for (let el in user)
+//     finalData += `<div>the ${el} is => ${user[el]}</div>`;
+// document.body.innerHTML = finalData;
+
+////lesson 09 from JavaScript OOP course:
+// const user = {
+//     name: "mouaadh",
+//     age: 20,
+// };
+// console.log(Object.getOwnPropertyDescriptor(user, "name"));//it's configurations will be true by default
+// console.log(delete user.age);//true, because when you bdeclare an object like this, all of its properties's configurations(writable,enumerable,configurable) are set true
+// console.log(user);//{name: 'mouaadh'}
+// console.log("#".repeat(20));
+// const freezed = Object.freeze({//the freeze creates an object with { writable: false, enumerable: true, configurable: false}
+//     naming: "school",
+// });
+// console.log(freezed);
+// delete freezed.naming;//this doesn't work since
+// console.log(Object.getOwnPropertyDescriptor(freezed,"naming"));//{value: 'school', writable: false, enumerable: true, configurable: false}
+// console.log("#".repeat(20));
+// let created = Object.create({
+//     ne: "s",
+//     me: "d",
+// });
+// created.age = 90;
+// console.log(created);//{}
+// console.log(delete created.ne);//true, since it was npt in the "created" properties
+// console.log(delete created.__proto__.me);//true, since it has been deleted from the prototype
+// console.log(created.ne);//s
+// console.log(created.__proto__);//{ne: 's'}
+// console.log(created.prototype);//undefined, sine prototype is only for constructor functions (classes)
+// console.log(Object.getOwnPropertyDescriptor(created, "ne"));//undefined, since "ne is not an own property of "create" but its an own property of the prototype, so we write the next line
+// console.log(Object.getOwnPropertyDescriptor(Object.getPrototypeOf(created), "ne"));
+// const friend = {};
+// Object.defineProperty(friend,'kkk',{//if you didn't add the descriptor all of it's configurations will be false by default
+//     value: "k-tuple",
+//     writable: true,// you can update it's value
+//     configurable: true,// you can delete it or something like this
+//     enumerable: true,// you can loop on it
+// });
+
+////// exercices (134 - 146) :
+////exercise 02:
+// let specialNames = "Os10O OsO Os100O Osa100O Os1000 Os100m";
+// let regex = /os[0-9]*o/ig;
+// console.log(specialNames.match(regex));
+////exercise 03:
+// let phone = "+(995)-123 (4567)";
+// let regex = /\+\(\d{3}\)-\d{3}\s\(\d{4}\)/g;
+// console.log(phone.match(regex));
+//////Some infoes from chat GPT about capturing groups:
+//// backreferences in regular expressions:
+// const text1 = "This is a test testtest to find repeated wls wls wls l s repeated words.";
+// let reg1 = /\b((w(\w)(\w))) \1 \2 \3 \4/gi;
+// console.log(text1.match(reg1));//['wls wls wls l s']
+// const text2 = "This is a test testtest to find repeated kkls kkls kkl kl l s repeated words.";
+// let reg2 = /\b((k(k(\w)))(\w)) \1 \2 \3 \4 \5/gi;
+// console.log(text2.replace(reg2, "$2/$1/$3/$4/$5"));//This is a test testtest to find repeated kkl/kkls/kl/l/s repeated words.(the numbers referencing in the same way the backreferences do)
+// console.log(text2.match(reg2));//['wwls wwls wwl wl l s'] : كل قوس يدخل اليه يجب ان يكمل كل الاقواس بداخله قبل ان يخرج للقوس الاخ له في ترتيب الاعداد
+// //Referencing Captured Groups in Replacement Strings:
+// Ex 01:
+// let str = "1542-544-511-ljk";
+// let regex = /(\d{4})-(\d{3})-(\d{3})-([a-z]{3})/ig;
+// console.log(str.match(regex));
+// console.log(str.replace(regex,"$2/$1/$4/$3"));
+// Ex 02:
+// const text3 = "This is a test testtest to find repeated kkls kkls kkl kl l s repeated words.";
+// let reg3 = /\b((k(k(\w)))(\w))/gi;
+// console.log(text3.replace(reg3, "$2/$1/$3/$4/$5"));//This is a test testtest to find repeated kkl/kkls/kl/l/s repeated words.(the numbers referencing in the same way the backreferences do)
+//// Accessing Captured Groups:
+// Ex 01:
+// let text = "hello world";
+// let regex = /(\w+)\s(\w+)/ig;
+// let matches = regex.exec(text);
+// console.log(matches);//['hello world', 'hello', 'world']
+// console.log(matches.groups);//undefined
+// Ex 02:(mere complex)
+// const text3 = "This is a test testtest to find repeated kkls kkls kkl kl l s repeated words.";
+// let reg3 = /\b((k(k(\w)))(\w))/gi;
+// console.log(reg3.exec(text3));//(6) ['kkls', 'kkls', 'kkl', 'kl', 'l', 's'](the indexes referencing in the same way the backreferences do)
+//// Named Capturing Groups:(this one is the same as the previous one just the captured groups here have names)
+// let txt = "154-2657-34";
+// let reg = /(?<three>\d{3})-(?<four>\d{4})-(?<two>\d{2})/ig;
+// let matches = reg.exec(txt);
+// console.log(matches);//(4) ['154-2657-34', '154', '2657', '34']
+// console.log(matches.groups);//{three: '154', four: '2657', two: '34'}
+// console.log(matches.groups.two);//34
+////exercise 04:(?: ...) this creats a non-capturing group which group the elements but do not store the matched content of the group to be used later
+// let re = /https?:\/\/(?:[-\w]+\.)?([-\w]+)\.\w+(?:\.\w+)?\/?[^\s]*/ig;//[-\w]+ this means that there will be one or more of (-) and one or more of (alphabets and nums and _)
+// let txt = "https://k-kk.p-pp.ssslpdsk http://bb.nnnn.hh/gf"
+// console.log(txt.match(re));// ['https://k-kk.p-pp.ssslpdsk', 'http://bb.nnnn.hh/gf']
+////exercise 05:
+// let date1 = "25/10/1982";
+// let date2 = "25 - 10 - 1982";
+// let date3 = "25 10 1982";
+// let date4 = "25 10 82";
+// let re = /\d{2}[\/\s-]+\d{2}[\/\s-]+\d{2}/g; // Write Pattern Here
+// console.log(date1.match(re)); // "25/10/1982"
+// console.log(date2.match(re)); // "25 - 10 - 1982"
+// console.log(date3.match(re)); // "25 10 1982"
+// console.log(date4.match(re)); // "25 10 82"
+
+////lesson 145:
+// let url1 = 'elzero.org';
+// let url2 = 'http://elzero.Org';
+// let url3 = 'https://elzero.com';
+// let url4 = 'https://www.elzero.org';
+// let url5 = 'https://www.elzero.org:8080/articles.php?id=100&cat=topics';
+// let re = /(https?\:\/\/)?(www\.)?[a-z0-9-]+\.[a-z]{2,}[^\s]*/gi;
+// console.log(url1.match(re));
+// console.log(url2.match(re));
+// console.log(url3.match(re));
+// console.log(url4.match(re));
+// console.log(url5.match(re));
+
+////lesson 144:
+//method one:(this is the best practice)
+// let submit = document.querySelector("form");
+// submit.addEventListener("submit", function(e) {//the submit event is applied to the form not to the submit input when you use addEventListener
+//     let phone = submit[0];
+//     let regPhone = /\(\d{4}\)\s\d{3}-\d{4}/;
+//     let test = regPhone.test(phone.value);
+//     if(!test){
+//         e.preventDefault();
+//         alert("the phone number should be of the form Ex: (1234) 567-8910");
+//         phone.focus();
+//     }
+// });
+//method two:
+// let submit = document.querySelector("form");
+// submit.onsubmit = function(){
+//     let phone = submit[0];
+//     let regPhone = /\(\d{4}\)\s\d{3}-\d{4}/;
+//     let test = regPhone.test(phone.value);
+//     if(!test){
+//         alert("the phone number should be of the form Ex: (1234) 567-8910");
+//         phone.focus();
+//         return false;
+//     }
+// }
+
+////lesson 143:
+// let txt = "We Love Programming And @ Because @ Is Amazing";
+// console.log(txt.replace("@", "javascript"));//We Love Programming And javascript Because @ Is Amazing
+// console.log(txt);//We Love Programming And @ Because @ Is Amazing : this shows that it doesn't replace them in the main txt
+// console.log(txt.replaceAll("@", "css"));//We Love Programming And css Because css Is Amazing
+// let regex = /( \w{4} | \w{2,3} )/ig;
+// console.log(txt.replaceAll(regex, " html "));//We html Programming html @ Because @ html Amazing
+
+////lesson 142:
+// let myString = "We Love Programming";
+// let names = "1OsamaZ 2AhmedZ 3Mohammed 4MoustafaZ 5GamalZ";
+// console.log(/ing$/ig.test(myString));//true ,$ means if it ends with ing
+// console.log(/^w/ig.test(myString));//true ,^ means if it starts with w
+// console.log(/^2/ig.test(names));//false
+// console.log(names.match(/\d\w{5}(?=z)/ig));//['1Osama', '2Ahmed', '5Gamal']
+// console.log(names.match(/\d\w{5}z/ig));//['1OsamaZ', '2AhmedZ', '5GamalZ']
+// //the previous two lines shows the difference between writting followed by z and writting z itself
+// console.log(names.match(/\d\w{8}(?!z)/ig));//['3Mohammed'], since 3Mouhammed is not followed by z
+
+////lesson 141:
+// let serials = "ss S100S S3000S S50000S S950000S";
+// console.log(serials.match(/s\d{3}s/ig));// S[Three Number]S
+// console.log(serials.match(/s\d{3,4}s/ig));// S[Four Or Five Number]S
+// console.log(serials.match(/s\d{4,}s/ig)); // S[At Least Four]S
+// console.log(serials.match(/s\d{0,4}s/ig));//['ss', 'S100S', 'S3000S']
+
+////lesson 140:(quantifiers)(+ : one or more)(* : zero or more)(? : zero or one)
+// let mails = "o@nn.sa osama@gmail.com elzero@gmail.net osama@mail.ru";
+// let regMail = /\w+@\w+.(net|com)/ig;
+// console.log(mails.match(regMail));//['osama@gmail.com', 'elzero@gmail.net']
+// let nums = "0110 10 150 05120 0560 350 00";
+// let regNums1 = /0\d+0/g;
+// console.log(nums.match(regNums1));//['0110', '05120', '0560']
+// let regNums2 = /0\d*0/g;
+// console.log(nums.match(regNums2));//['0110', '05120', '0560', '00']
+// let urls = "https://google.com http://www.website.net web.com";
+// let regUrls = /(https?:\/\/)?(www.)?\w+.\w+/ig;
+// console.log(urls.match(regUrls));//['https://google.com', 'http://www.website.net', 'web.com']
+
+////lesson 139:
+// let names = "Sayed 1Spam 2Spam 3Spam Spam4 Spam5 Osama Ahmed Aspamo";
+// let regBeg = /\bspam/ig;//(\b) matches at the begginning of the word(if the spam is written after a white space)
+// console.log(names.match(regBeg));//['Spam', 'Spam']
+// let regEnd = /spam\b/ig;
+// console.log(names.match(regEnd));//['Spam', 'Spam', 'Spam']
+// let notRegBeg = /\Bspam/ig;//here the inverse (the spam word should not be ater a white space
+// console.log(names.match(notRegBeg));//['Spam', 'Spam', 'Spam', 'spam']
+// let notRegEnd = /spam\B/ig;
+// console.log(names.match(notRegEnd));//['Spam', 'Spam', 'spam']
+// let test1 = /(\bspam|spam\b)/ig;
+// console.log(test1.test(names));//true (it means that names contains a spam word and before it a white space or after it a white space)
+// let test2 = /(\bspam\b)/ig;
+// console.log(test2.test(names));//false
+
+////lesson 138:
+// let email = 'O@@@g...com \n O@g.com_ O@g.net A@Y.com O-g.com o@s.org 1@1.com';
+// let dot = /./g;
+// console.log(email.match(dot));//(\n) will not be matchedsince the dot doesn't match all the line terminators
+// console.log(email.match(/\w/g));//(\w) match alphabets and nums and (_)
+// console.log(email.match(/\W/g));//the inverse of the small w
+// console.log(email.match(/\d/g));//it matches digits
+// console.log(email.match(/\D/g));//it matches the inverse of the previous one
+// console.log(email.match(/\s/g));//it matches white space chars and line terminators
+// console.log(email.match(/\S/g));//it matches the inverse of the previous one
+// //exapmle of validating an email
+// console.log(email.match(/\w@\w.(com|org)/g));//['O@g.com', 'A@Y.com', 'o@s.org', '1@1.com']
+
+////lesson 137:
+// let myString = "AaBbcdefG123!234%^&*";
+// let a = new RegExp("[a-z]", "g");
+// console.log(myString.match(a));
+// let nota = /[^a-z]/g;
+// console.lo0g(myString.match(nota));
+// let b = /[A-Z]/g;
+// console.log(myString.match(b));
+// let ace = /[ace]/g;
+// console.log(myString.match(ace));
+// let notace = /[^ace]/g;
+// console.log(myString.match(notace));
+// let letters = /[a-zA-Z]/g;//this is the same as /[a-z]/ig
+// console.log(myString.match(letters));
+// let notLetters = /[^a-zA-Z]/g;
+// console.log(myString.match(notLetters));
+// let noLetteresNorNums = /[^a-z0-9]/ig;
+// console.log(myString.match(noLetteresNorNums));
+
+////lesson 136:
+// let tld = "com Org info Io Code net";
+// let regTld = /(info|org|net)/i;
+// console.log(tld.match(regTld));//['Org', 'Org'] : why it appears twice ????
+// let regTlds = /(info|net|io)/ig;
+// console.log(tld.match(regTlds));//['info', 'Io', 'net']
+// let nums = "12345678910";
+// let regNum = new RegExp("[2-6]","g");
+// console.log(nums.match(regNum));//['2', '3', '4', '5', '6']
+// let notRegNum = new RegExp("[^2-6]","g");
+// console.log(nums.match(notRegNum));//['1', '7', '8', '9', '1', '0']
+// let nums_Chrs = "12&34%5678*91#0";
+// let regNums_Chrs = /[^0-9]/g;
+// console.log(nums_Chrs.match(regNums_Chrs));//['&', '%', '*', '#']
+// let practice = "Os12os os1 os2os13 osos";
+// let regPractice = /os[1-3]os[1-9][1-9]/ig;
+// console.log(practice.match(regPractice));//['os2os13']
+
+////lesson 135:(regular expressions)
+// let myString = "Hello Elzero Web School I Love elzero";
+// let regex = /elzero/gi;//this the same as let regex = new RegExp("elzero", "ig"); //i means case insensitive, g : global, m: multilines, s: single line, (u: unicode, y: stiky ????)
+// console.log(myString.match(regex));
+// console.log(myString.match(regex));//if no match is found it returns null
+
+////// exercices (123 - 133) :
+////exercise 01:
+// let setOfNumbers = new Set([10]);
+// setOfNumbers.add(20);
+// setOfNumbers.add(setOfNumbers.size);
+// console.log(setOfNumbers);
+// console.log(Array.from(setOfNumbers)[2]);
+////exercise 02:
+// let myFriends = ["Osama", "Ahmed", "Sayed", "Sayed", "Mahmoud", "Osama"];
+// console.log([...new Set(myFriends)].sort());
+////exercise 03:
+// let myInfo = {
+//     username: "Osama",
+//     role: "Admin",
+//     country: "Egypt",
+//   };
+// // console.log(Object.entries(myInfo));//[Array(2), Array(2), Array(2)]
+// let entries = Object.entries(myInfo);
+// let myMap = new Map();
+// entries.forEach(element => {
+//     myMap.set(element[0], element[1]);
+// });
+// console.log(myMap);
+// console.log(myMap.size);
+// console.log(Array.from(myMap.keys()).some(el => el === "role"));
+////exercise 04:
+// let theNumber = 100020003000;
+// console.log(+Array.from(new Set([...theNumber.toString()])).filter(el => el !== "0").join(""));
+////exercise 05:
+// let theName = "Elzero";
+// console.log([...theName]);
+////exercise 06:
+// function modifyArray(arr) {
+//     let newarr = [];
+//     let index = 0;
+//     arr.forEach(el => {
+//         if (typeof el === "number") {
+//             newarr.unshift(el);
+//             index++;
+//         }
+//         if (typeof el === "string") newarr.push(el);
+//     });
+//     arr = newarr;
+//     arr.copyWithin(0, index, index * 2);
+//     console.log(arr);
+// }
+// let chars = ["A", "B", "C", 20, "D", "E", 10, 15, 6];
+// modifyArray(chars);
+
+////exercise 08:
+// let n1 = [10, 30, 10, 20];
+// let n2 = [30, 20, 10];
+// console.log(Math.max(...n1) * n1.concat(n2).length);
+
+////lesson 133:(challenge) ????
+
+////lesson 132:(spread ...)
+// console.log(..."mouaadh");
+// console.log([..."mouaadh"]);
+// let arr1 = [1,2,3];
+// let arr2 = [4,5,6];
+// concatinated = [...arr1, ...arr2];
+// console.log(concatinated);
+// let arr = [...arr1];//here we hav copied the arr1 to the arr
+// console.log(arr);
+// arr.push(...arr2);
+// console.log(arr);
+// console.log(Math.min(...arr2))//4
+// let obj1 = {
+//     a: 1,
+//     b: 2,
+// };
+// let obj2 = {
+//     c: 3,
+//     d: 4,
+// };
+// let obj = {...obj1, ...obj2, e: 5,};//it is used also to merge objects
+// console.log(obj);
+
+////lesson 131:
+// let arr = [12, 15, 75, 9];
+// let num = 8;
+// console.log(arr.every(function(el) {
+//     return el > this;
+// }, num));//true
+
+////lesson 130:
+// let arr = [1,2,3,4,5,6,7,8,9,10];
+// let num = 4;
+// let check = arr.some(function (el) {//th earrow function inherit the this from the lexical scope which is window
+//     return el > this;
+// },num);
+// console.log(check);
+// function check2(arr, val) {
+//     return console.log(arr.some(el => el === val));
+// }
+// check2(arr, num);
+// let range = Object.create({
+//     min: 1,
+//     max: 10,
+// });
+// function checkRangeInArr(arr, range) {//checking if the range is included in the array by all of its numbers
+//     let arrRange = [];
+//         for(let i = range.min; i <= range.max; i++)
+//         arrRange.push(i);
+//     return console.log(arrRange.every(function(el) {
+//         return arr.some(e => e === el);
+//     }))
+// }
+// checkRangeInArr(arr, range);
+
 ////lesson 129:
 // let myArr = [10, 20, 30, 40, 50, "a", "b"];
 // myArr.copyWithin(3);
@@ -26,7 +909,7 @@
 // }
 // arrFromArgs("hbdf", 21, "fddf", 11);//['hbdf', 21, 'fddf', 11] , this function put the argus in an array and print them in the console
 
-////lesson 127:(WeakMap)//it can except only objects 
+////lesson 127:(WeakMap)//it can except only objects
 // let myWMap = new WeakMap();
 // let obj = {"hi": 1};
 // myWMap.set(obj, "obj value is one");
